@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: DATA-LOAD
+  datasource:
+    url: jdbc:mysql://localhost:3306/data-load?createDatabaseIfNotExist=true&cachePrepStmts=true&useServerPrepStmts=true&rewriteBatchedStatements=true
+    username: root
+    password: admin
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+      format_sql: true

@@ -1,0 +1,8 @@
+spring:
+  r2dbc:
+    url: r2dbc:mysql://localhost:3306/webflux-crud?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverZoneId=UTC
+    username: root
+    password: admin
+
+server:
+  port: 8084
