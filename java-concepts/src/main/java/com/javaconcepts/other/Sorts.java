@@ -256,13 +256,13 @@ public class Sorts {
 
 //        sorts.bubbleSort();
 
-//        sorts.selectionSort();
+        sorts.selectionSort();
 
 //        sorts.insertionSort();
 
-        int[] arr = new int[]{9,5,8,1,6,7};
+//        int[] arr = new int[]{9,5,8,1,6,7};
 
-        sorts.mergeSort(arr, 0, (arr.length - 1));
+//        sorts.mergeSort(arr, 0, (arr.length - 1));
     }
 
 }
