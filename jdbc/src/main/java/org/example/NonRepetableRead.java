@@ -110,7 +110,7 @@ public class NonRepetableRead {
              *  Also by default my sql transaction isolation is TRANSACTION_REPEATABLE_READ which is why removing
              *  or commenting the line below will have the same effect as setting it to TRANSACTION_REPEATABLE_READ
              * */
-            connection.setTransactionIsolation(Connection.TRANSACTION_REPEATABLE_READ);
+            connection.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
             connection.setAutoCommit(false);
             System.out.println(threadName + " About to execute the query");
 
@@ -128,7 +128,7 @@ public class NonRepetableRead {
             Thread.sleep(8000);
             System.out.println(threadName + " waking up");
 
-            System.out.println(threadName + " About to execute the query");
+            System.out.println(threadName + " About to execute the query again");
 
             try (ResultSet resultSet = getStudentBasedOnMarksStatement.executeQuery()) {
 

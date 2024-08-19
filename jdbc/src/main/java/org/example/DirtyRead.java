@@ -128,7 +128,7 @@ public class DirtyRead {
              * Using TRANSACTION_READ_COMMITTED essentially means whenever user is performing insert update and deletes user
              * cannot read the data
              */
-            connection.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
+            connection.setTransactionIsolation(Connection.TRANSACTION_READ_UNCOMMITTED);
             connection.setAutoCommit(false);
             System.out.println(threadName + " About to execute the query");
 

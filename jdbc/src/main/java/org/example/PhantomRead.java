@@ -48,12 +48,13 @@ public class PhantomRead {
              PreparedStatement insertStudentRecordStatement = connection.prepareStatement(sqlToInsertStudentRecord);
         ) {
             connection.setAutoCommit(false);
-
+            // For my sql its by default TRANSACTION_REPEATABLE_READ
+            connection.setTransactionIsolation(Connection.TRANSACTION_REPEATABLE_READ);
             int updateCount = insertStudentRecordStatement.executeUpdate();
 
-            System.out.println("Inserted a record in the employee table");
-
             connection.commit();
+
+            System.out.println("Inserted a record in the employee table "+ updateCount);
         } catch (Exception exception) {
             System.err.println(exception.getMessage());
         }
@@ -77,15 +78,15 @@ public class PhantomRead {
                 ConnectionConstants.username, ConnectionConstants.password);
              PreparedStatement getStudentBasedOnMarksStatement = connection.prepareStatement(sqlToGetStudentBasedOnMarks);
         ) {
-            /* Uncommenting the below line will result in the 2nd select also printing IT 3 instead of Rahul
-            *  indicating the non-repeatable read problem */
+            /* TRANSACTION_SERIALIZABLE causes TWO ROWS to be fetched in both the selects */
             connection.setAutoCommit(false);
+            // For my sql its by default TRANSACTION_REPEATABLE_READ
+            connection.setTransactionIsolation(Connection.TRANSACTION_REPEATABLE_READ);
             System.out.println(threadName + " About to execute the query");
 
             try (ResultSet resultSet = getStudentBasedOnMarksStatement.executeQuery()) {
 
                 System.out.println(threadName + " Thread is printing");
-
                 while (resultSet.next()) {
                     System.out.println(resultSet.getString("fullname"));
                 }
@@ -93,14 +94,14 @@ public class PhantomRead {
             System.out.println(threadName + " extracts result set successfully");
 
             System.out.println(threadName + " going to sleep.........");
-            Thread.sleep(8000);
+            Thread.sleep(3000);
             System.out.println(threadName + " waking up");
 
-            System.out.println(threadName + " About to execute the query");
+            System.out.println(threadName + " About to execute the query again");
 
             try (ResultSet resultSet = getStudentBasedOnMarksStatement.executeQuery()) {
 
-                System.out.println(threadName + " Thread is printing");
+                System.out.println(threadName + " Thread is printing again");
 
                 while (resultSet.next()) {
 
