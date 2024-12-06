@@ -81,7 +81,7 @@ public class PhantomRead {
             /* TRANSACTION_SERIALIZABLE causes TWO ROWS to be fetched in both the selects */
             connection.setAutoCommit(false);
             // For my sql its by default TRANSACTION_REPEATABLE_READ
-            connection.setTransactionIsolation(Connection.TRANSACTION_REPEATABLE_READ);
+            connection.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
             System.out.println(threadName + " About to execute the query");
 
             try (ResultSet resultSet = getStudentBasedOnMarksStatement.executeQuery()) {

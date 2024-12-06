@@ -14,7 +14,7 @@ public class DataService {
     public List<ArchivedCustomerEntity> getData() {
         Faker faker = new Faker();
         List<ArchivedCustomerEntity> listOfArchivedCustomerDetails = new ArrayList<>();
-        for (int counter = 0; counter < 10000; counter++) {
+        for (int counter = 0; counter < 10; counter++) {
             ArchivedCustomerEntity archivedCustomerDetail = new ArchivedCustomerEntity();
             archivedCustomerDetail.setFirstName(faker.name().firstName());
             archivedCustomerDetail.setLastName(faker.name().lastName());

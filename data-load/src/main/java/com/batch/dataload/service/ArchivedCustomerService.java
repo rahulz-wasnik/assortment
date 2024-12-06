@@ -1,7 +1,9 @@
 package com.batch.dataload.service;
 
+import com.batch.dataload.dto.CustomerDto;
 import com.batch.dataload.entity.ArchivedCustomerEntity;
 import com.batch.dataload.repository.ArchivedCustomerRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +22,25 @@ public class ArchivedCustomerService {
 
     @Autowired
     private DataService dataService;
+
+    public List<CustomerDto> getCustomers() {
+        LocalDateTime start = LocalDateTime.now();
+        List<CustomerDto> customers = archivedCustomerRepository.findAll().parallelStream().map(entity -> mapToDto(entity)).toList();
+        LocalDateTime end = LocalDateTime.now();
+        timeService.logTotalTimeTakenForExecution(start, end);
+        return customers;
+    }
+
+    private CustomerDto mapToDto(ArchivedCustomerEntity customerEntity) {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        CustomerDto customerDto = new CustomerDto();
+        BeanUtils.copyProperties(customerEntity, customerDto);
+        return customerDto;
+    }
 
     /**
      * 16 seconds with logging 10000 records

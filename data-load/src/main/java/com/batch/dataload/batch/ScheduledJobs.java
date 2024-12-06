@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
-@Component
+//@Component
 public class ScheduledJobs {
 
     @Autowired

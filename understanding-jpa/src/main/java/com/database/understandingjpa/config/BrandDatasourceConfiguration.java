@@ -22,7 +22,7 @@ import java.util.HashMap;
         entityManagerFactoryRef = "brandEntityManagerFactory",
         transactionManagerRef = "brandTransactionManager",
         basePackages = {"com.database.understandingjpa.repository.brand"})
-public class OrderDatasourceConfiguration {
+public class BrandDatasourceConfiguration {
 
     @Bean(name = "brandProperties")
     @ConfigurationProperties("spring.datasource.brand")
