@@ -4,8 +4,8 @@ spring:
     username: root
     password: admin
     driver-class-name: com.mysql.cj.jdbc.Driver
-    brand:
-      url: jdbc:mysql://localhost:3306/multi-database-brand?createDatabaseIfNotExist=true
+    hibernate-inheritance:
+      url: jdbc:mysql://localhost:3306/hibernate-inheritance?createDatabaseIfNotExist=true
       username: root
       password: admin
       driver-class-name: com.mysql.cj.jdbc.Driver
