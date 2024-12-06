@@ -18,6 +18,8 @@ public class OneToManyCart {
     private Long id;
     
     @OneToMany(mappedBy = "cart")
+    // Mapped by tells us that the owning side is cart which is present as a class variable in Items class
+    // this means foreign key will be on the items table
     // Not adding mapped by will create an additional table containing cart id and items id
     // By adding mapped by you are telling Cart, hey the mapping is already created by items you don't do anything -
     // - there by the cart will not create an additional table
