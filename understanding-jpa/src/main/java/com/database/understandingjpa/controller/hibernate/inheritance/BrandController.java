@@ -1,8 +1,8 @@
-package com.database.understandingjpa.controller.brand;
+package com.database.understandingjpa.controller.hibernate.inheritance;
 
-import com.database.understandingjpa.entity.brand.BrandEntity;
-import com.database.understandingjpa.entity.brand.I10Entity;
-import com.database.understandingjpa.repository.brand.BrandRepository;
+import com.database.understandingjpa.entity.hibernate.inheritance.BrandEntity;
+import com.database.understandingjpa.entity.hibernate.inheritance.I10Entity;
+import com.database.understandingjpa.repository.hibernate.inheritance.BrandRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

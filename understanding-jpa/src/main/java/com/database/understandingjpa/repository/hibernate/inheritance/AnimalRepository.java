@@ -1,6 +1,6 @@
-package com.database.understandingjpa.repository.brand;
+package com.database.understandingjpa.repository.hibernate.inheritance;
 
-import com.database.understandingjpa.entity.brand.AnimalEntity;
+import com.database.understandingjpa.entity.hibernate.inheritance.AnimalEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /*

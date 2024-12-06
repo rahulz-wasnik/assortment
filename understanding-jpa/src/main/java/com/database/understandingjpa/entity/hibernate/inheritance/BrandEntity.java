@@ -1,4 +1,4 @@
-package com.database.understandingjpa.entity.brand;
+package com.database.understandingjpa.entity.hibernate.inheritance;
 
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;

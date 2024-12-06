@@ -1,6 +1,6 @@
-package com.database.understandingjpa.repository.brand;
+package com.database.understandingjpa.repository.hibernate.inheritance;
 
-import com.database.understandingjpa.entity.brand.HuskyEntity;
+import com.database.understandingjpa.entity.hibernate.inheritance.HuskyEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /*

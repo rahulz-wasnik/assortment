@@ -1,12 +1,9 @@
-package com.database.understandingjpa.controller.brand;
+package com.database.understandingjpa.controller.hibernate.inheritance;
 
-import com.database.understandingjpa.entity.brand.AnimalEntity;
-import com.database.understandingjpa.entity.brand.BrandEntity;
-import com.database.understandingjpa.entity.brand.HuskyEntity;
-import com.database.understandingjpa.entity.brand.I10Entity;
-import com.database.understandingjpa.repository.brand.AnimalRepository;
-import com.database.understandingjpa.repository.brand.BrandRepository;
-import com.database.understandingjpa.repository.brand.HuskyRepository;
+import com.database.understandingjpa.entity.hibernate.inheritance.AnimalEntity;
+import com.database.understandingjpa.entity.hibernate.inheritance.HuskyEntity;
+import com.database.understandingjpa.repository.hibernate.inheritance.AnimalRepository;
+import com.database.understandingjpa.repository.hibernate.inheritance.HuskyRepository;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import org.springframework.beans.factory.DisposableBean;

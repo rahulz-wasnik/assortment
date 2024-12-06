@@ -1,8 +1,7 @@
-package com.database.understandingjpa.entity.brand;
+package com.database.understandingjpa.entity.hibernate.inheritance;
 
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

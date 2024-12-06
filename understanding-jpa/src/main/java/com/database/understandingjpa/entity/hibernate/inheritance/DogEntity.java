@@ -1,4 +1,4 @@
-package com.database.understandingjpa.entity.brand;
+package com.database.understandingjpa.entity.hibernate.inheritance;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -12,10 +12,10 @@ import lombok.Setter;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @Entity
-@Table(name = "HUSKY")
-public class HuskyEntity extends DogEntity {
+@Table(name = "DOG")
+public class DogEntity extends AnimalEntity {
 
     // No discriminator column needed
 
-    private String name;
+    private String species;
 }

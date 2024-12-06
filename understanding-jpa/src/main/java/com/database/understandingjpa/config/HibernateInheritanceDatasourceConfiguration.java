@@ -19,40 +19,40 @@ import java.util.HashMap;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(
-        entityManagerFactoryRef = "brandEntityManagerFactory",
-        transactionManagerRef = "brandTransactionManager",
-        basePackages = {"com.database.understandingjpa.repository.brand"})
-public class BrandDatasourceConfiguration {
+        entityManagerFactoryRef = "hibernateInheritanceEntityManagerFactory",
+        transactionManagerRef = "hibernateInheritanceTransactionManager",
+        basePackages = {"com.database.understandingjpa.repository.hibernate.inheritance"})
+public class HibernateInheritanceDatasourceConfiguration {
 
-    @Bean(name = "brandProperties")
-    @ConfigurationProperties("spring.datasource.brand")
+    @Bean(name = "hibernateInheritanceProperties")
+    @ConfigurationProperties("spring.datasource.hibernate-inheritance")
     public DataSourceProperties dataSourceProperties() {
         return new DataSourceProperties();
     }
 
-    @Bean(name = "brandDatasource")
-    @ConfigurationProperties(prefix = "spring.datasource.brand")
-    public DataSource datasource(@Qualifier("brandProperties") DataSourceProperties properties) {
+    @Bean(name = "hibernateInheritanceDatasource")
+    @ConfigurationProperties(prefix = "spring.datasource.hibernate-inheritance")
+    public DataSource datasource(@Qualifier("hibernateInheritanceProperties") DataSourceProperties properties) {
         return properties.initializeDataSourceBuilder().build();
     }
 
-    @Bean(name = "brandEntityManagerFactory")
+    @Bean(name = "hibernateInheritanceEntityManagerFactory")
     public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean
             (EntityManagerFactoryBuilder builder,
-             @Qualifier("brandDatasource") DataSource dataSource) {
+             @Qualifier("hibernateInheritanceDatasource") DataSource dataSource) {
 
         HashMap<String, Object> properties = new HashMap<>();
         properties.put("hibernate.hbm2ddl.auto", "create");
 
         return builder.dataSource(dataSource).properties(properties)
-                .packages("com.database.understandingjpa.entity.brand")
-                .persistenceUnit("brand").build();
+                .packages("com.database.understandingjpa.entity.hibernate.inheritance")
+                .persistenceUnit("hibernateInheritance").build();
     }
 
-    @Bean(name = "brandTransactionManager")
+    @Bean(name = "hibernateInheritanceTransactionManager")
     @ConfigurationProperties("spring.jpa")
     public PlatformTransactionManager transactionManager(
-            @Qualifier("brandEntityManagerFactory") EntityManagerFactory entityManagerFactory) {
+            @Qualifier("hibernateInheritanceEntityManagerFactory") EntityManagerFactory entityManagerFactory) {
         return new JpaTransactionManager(entityManagerFactory);
     }
 }
